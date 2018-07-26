@@ -54,7 +54,4 @@ Solium linter 1.0.0 BETA
 solcheck linter 0.1.3  
 
 ## Test coverage report
-`coverage/index.html`# Pareto-Network
-# Pareto-Network
-# Pareto-Network
-# Pareto-Network
+`coverage/index.html`
