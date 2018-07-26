@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/CrowdSale.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> CrowdSale.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>31/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>35/35</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity 0.4.18;
+&nbsp;
+&nbsp;
+import "./interfaces/PricingStrategyInterface.sol";
+import "./interfaces/TokenInterface.sol";
+import "../node_modules/zeppelin-solidity/contracts/math/SafeMath.sol";
+import "../node_modules/zeppelin-solidity/contracts/lifecycle/Pausable.sol";
+import "../node_modules/zeppelin-solidity/contracts/ownership/Claimable.sol";
+&nbsp;
+&nbsp;
+contract CrowdSale is Pausable, Claimable {
+    using SafeMath for uint256;
+&nbsp;
+    /** 40% of tokens are available for sale */
+    uint256 public constant TOKEN_TOTAL_PURCHASE_CAP = 200000000 * (10 ** 18);
+&nbsp;
+    TokenInterface public token;
+&nbsp;
+    PricingStrategyInterface public pricingStrategy;
+&nbsp;
+    uint256 public finalizedTimestamp;
+&nbsp;
+    bool public isFinalized = false;
+&nbsp;
+    address public wallet;
+&nbsp;
+    uint256 public weiRaised;
+&nbsp;
+    uint256 public tokensSold;
+&nbsp;
+    uint256 public investorCount;
+&nbsp;
+    /** Invested by users. */
+    mapping (address =&gt; uint256) public investedAmountOf;
+&nbsp;
+    /** Tokens by users. */
+    mapping (address =&gt; uint256) public tokenAmountOf;
+&nbsp;
+    /** A new investment was made */
+    event Invested(address indexed _investor, uint256 _weiAmount, uint256 _tokenAmount);
+&nbsp;
+    /** CrowdSale was finalized */
+    event Finalized();
+&nbsp;
+    /** PricingStrategy was changed */
+    event PricingStrategyChanged(address _oldStragey, address _newStrategy, uint256 _timestamp, address _changedBy);
+&nbsp;
+    /**
+     * @dev CrowdSale constructor
+     */
+    function CrowdSale(TokenInterface _token, PricingStrategyInterface _pricingStrategy, address _wallet) {
+        token = _token;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(token.isToken());
+&nbsp;
+        wallet = _wallet;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(wallet != address(0));
+&nbsp;
+        setPricingStrategy(_pricingStrategy);
+    }
+&nbsp;
+    /**
+     * @dev Is purchase is valid
+     */
+    modifier validPurchase() {
+        require(msg.value &gt; 0);
+        require(!isFinalized);
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Fallback invest function
+     */
+    function() payable {
+        invest();
+    }
+&nbsp;
+    /**
+     * @dev Main function where investors should call to make a funding
+     */
+    function invest() validPurchase whenNotPaused public payable {
+        uint256 weiAmount = msg.value;
+        address receiver = msg.sender;
+&nbsp;
+        uint256 tokenAmount = pricingStrategy.calculateTokenAmount(weiAmount, token.decimals());
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenAmount &gt; 0);
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(isNotReachedTokensTotalPurchaseCap(tokenAmount));
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (investedAmountOf[receiver] == 0) {
+            // A new investor
+            investorCount++;
+        }
+&nbsp;
+        // Update investor counters.
+        investedAmountOf[receiver] = investedAmountOf[receiver].add(weiAmount);
+        tokenAmountOf[receiver] = tokenAmountOf[receiver].add(tokenAmount);
+&nbsp;
+        // Update total counters
+        weiRaised = weiRaised.add(weiAmount);
+        tokensSold = tokensSold.add(tokenAmount);
+&nbsp;
+        //Assign tokens
+        assignTokens(receiver, tokenAmount);
+&nbsp;
+        //Send ether to RefundVault
+        forwardFunds(weiAmount);
+&nbsp;
+        // Tell us invest was success
+        Invested(receiver, weiAmount, tokenAmount);
+    }
+&nbsp;
+    /**
+     * @dev Allow to change pricing strategy by the owner
+     */
+    function setPricingStrategy(PricingStrategyInterface _pricingStrategy) onlyOwner public {
+        address oldPricingStrategy = pricingStrategy;
+        pricingStrategy = _pricingStrategy;
+        require(pricingStrategy.isPricingStrategy());
+&nbsp;
+        PricingStrategyChanged(oldPricingStrategy, pricingStrategy, now, msg.sender);
+    }
+&nbsp;
+    /**
+     * @dev Finalize the CrowdSale and burn all rest tokens from the pool
+     */
+    function finalize() onlyOwner public {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(!isFinalized);
+&nbsp;
+        isFinalized = true;
+        finalizedTimestamp = now;
+&nbsp;
+        Finalized();
+    }
+&nbsp;
+    /**
+     * @dev Calculating available tokens to spend by the crowdsale
+     */
+    function getAvailableTokensToSell() public constant returns (uint256) {
+        return TOKEN_TOTAL_PURCHASE_CAP - tokensSold;
+    }
+&nbsp;
+    /**
+     * @dev Could we sell passed amount of tokens
+     */
+    function isNotReachedTokensTotalPurchaseCap(uint256 _tokensAmount) public constant returns (bool) {
+        return _tokensAmount &lt;= getAvailableTokensToSell();
+    }
+&nbsp;
+    /**
+     * @dev Forward invested fund to refund vault
+     */
+    function forwardFunds(uint256 _weiAmount) internal {
+        wallet.transfer(_weiAmount);
+    }
+&nbsp;
+    /**
+     * @dev Assign tokens to the investor
+     */
+    function assignTokens(address _receiver, uint256 _tokenAmount) internal {
+        token.transferFrom(owner, _receiver, _tokenAmount);
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 18 2017 20:58:16 GMT+0300 (+03)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,289 +1,60 @@
-# ParetoTokenContract
-The erc20 token solidity code, as deployed on Ethereum Mainnet and Swarm
+# Pareto Network Token ERC20 Contract
 
-https://etherscan.io/address/0xea5f88e54d982cbb0c441cde4e79bc305e5b43bc#code
+## Warning! Don't forget to change wallet address in migrations: `migrations/4_CrowdSale.js`. This wallet will be user to receive ether  
 
-bzzr://7f4a41d58806785a52255da4e18fb10bc41c9b4678eac5b1797332a2398190fb
+## The project based on OpenZeppelin smart contract added into repository (OpenZeppelin 1.3.0)
 
-ABI
+## Install project dependencies
+1. Install nodejs and npm
+2. Install project dependencies: `npm install`
 
-[{
-	"constant": true,
-	"inputs": [],
-	"name": "name",
-	"outputs": [{
-		"name": "",
-		"type": "string"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [{
-		"name": "_spender",
-		"type": "address"
-	}, {
-		"name": "_value",
-		"type": "uint256"
-	}],
-	"name": "approve",
-	"outputs": [{
-		"name": "",
-		"type": "bool"
-	}],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [],
-	"name": "totalSupply",
-	"outputs": [{
-		"name": "",
-		"type": "uint256"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [{
-		"name": "_from",
-		"type": "address"
-	}, {
-		"name": "_to",
-		"type": "address"
-	}, {
-		"name": "_value",
-		"type": "uint256"
-	}],
-	"name": "transferFrom",
-	"outputs": [{
-		"name": "",
-		"type": "bool"
-	}],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [],
-	"name": "decimals",
-	"outputs": [{
-		"name": "",
-		"type": "uint256"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [],
-	"name": "claimOwnership",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [{
-		"name": "_spender",
-		"type": "address"
-	}, {
-		"name": "_subtractedValue",
-		"type": "uint256"
-	}],
-	"name": "decreaseApproval",
-	"outputs": [{
-		"name": "",
-		"type": "bool"
-	}],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [{
-		"name": "_owner",
-		"type": "address"
-	}],
-	"name": "balanceOf",
-	"outputs": [{
-		"name": "balance",
-		"type": "uint256"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [],
-	"name": "owner",
-	"outputs": [{
-		"name": "",
-		"type": "address"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [],
-	"name": "symbol",
-	"outputs": [{
-		"name": "",
-		"type": "string"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [],
-	"name": "reclaimEther",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [{
-		"name": "_to",
-		"type": "address"
-	}, {
-		"name": "_value",
-		"type": "uint256"
-	}],
-	"name": "transfer",
-	"outputs": [{
-		"name": "",
-		"type": "bool"
-	}],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [{
-		"name": "_spender",
-		"type": "address"
-	}, {
-		"name": "_addedValue",
-		"type": "uint256"
-	}],
-	"name": "increaseApproval",
-	"outputs": [{
-		"name": "",
-		"type": "bool"
-	}],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [{
-		"name": "_owner",
-		"type": "address"
-	}, {
-		"name": "_spender",
-		"type": "address"
-	}],
-	"name": "allowance",
-	"outputs": [{
-		"name": "",
-		"type": "uint256"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [],
-	"name": "pendingOwner",
-	"outputs": [{
-		"name": "",
-		"type": "address"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": true,
-	"inputs": [],
-	"name": "isToken",
-	"outputs": [{
-		"name": "",
-		"type": "bool"
-	}],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-}, {
-	"constant": false,
-	"inputs": [{
-		"name": "newOwner",
-		"type": "address"
-	}],
-	"name": "transferOwnership",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-}, {
-	"inputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "constructor"
-}, {
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "fallback"
-}, {
-	"anonymous": false,
-	"inputs": [{
-		"indexed": true,
-		"name": "previousOwner",
-		"type": "address"
-	}, {
-		"indexed": true,
-		"name": "newOwner",
-		"type": "address"
-	}],
-	"name": "OwnershipTransferred",
-	"type": "event"
-}, {
-	"anonymous": false,
-	"inputs": [{
-		"indexed": true,
-		"name": "owner",
-		"type": "address"
-	}, {
-		"indexed": true,
-		"name": "spender",
-		"type": "address"
-	}, {
-		"indexed": false,
-		"name": "value",
-		"type": "uint256"
-	}],
-	"name": "Approval",
-	"type": "event"
-}, {
-	"anonymous": false,
-	"inputs": [{
-		"indexed": true,
-		"name": "from",
-		"type": "address"
-	}, {
-		"indexed": true,
-		"name": "to",
-		"type": "address"
-	}, {
-		"indexed": false,
-		"name": "value",
-		"type": "uint256"
-	}],
-	"name": "Transfer",
-	"type": "event"
-}]
+## Run testrpc (do it in a separate bash session)
+`npm run testrpc`   
+
+## Compile smart contracts
+`npm run compile`  
+
+## Run full test suite
+`npm run tests`  
+
+## Run specified test
+`npm run test ./test/1_ParetoNetworkToken.js`
+
+## Generate test coverage report
+`npm run coverage`     
+
+## Run Solium linter
+`./node_modules/.bin/solium --dir ./contracts`  
+
+## Reformat the code according to Solium rules
+`./node_modules/.bin/solium --dir ./contracts --fix`  
+
+## Run solcheck linter
+`./node_modules/.bin/solcheck contracts/*`
+
+## Run all linters in project
+`npm run lint`  
+
+## Build and deploy smart contract into network
+`./node_modules/.bin/truffle migrate`
+
+## Deploy smart contract into live network
+`./node_modules/.bin/truffle migrate --network live`
+
+## Redeploy all contracts
+`./node_modules/.bin/truffle migrate --reset`  
+
+## Software versions
+Solidity v0.4.18  
+Truffle v4.0.1  
+testrpc v6.0.1  
+OpenZeppelin 1.3.0  
+solidity-coverage 0.2.5  
+Solium linter 1.0.0 BETA  
+solcheck linter 0.1.3  
+
+## Test coverage report
+`coverage/index.html`# Pareto-Network
+# Pareto-Network
+# Pareto-Network
+# Pareto-Network
